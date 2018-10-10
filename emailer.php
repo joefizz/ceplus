@@ -85,9 +85,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST'){
         #$mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
         $mail->Port = 25;                                    // TCP port to connect to
 
-        $mail->setFrom('security@d2cloud.co.uk', 'D2Security');
+        $mail->setFrom('security@email.com', 'D2Security');
         $mail->addAddress($Email);     // Add a recipient
-        $mail->addReplyTo('security@d2cloud.co.uk', 'D2Security');
+        $mail->addReplyTo('security@email.com', 'D2Security');
         #$mail->addCC('cc@example.com');
         #$mail->addBCC('bcc@example.com');
 
