@@ -33,7 +33,7 @@ Target User Email Address:
 <p>
 Please choose attachments to send.  if no attachments are chosen a test email will be sent :</br>
 <?php
-        $files = scandir("/var/www/CEPlus/files");
+        $files = scandir("files");
         foreach ($files as $file) {
                 if ($file != "." AND $file != ".."){
                         echo "<input type='checkbox' class='child' name=\"attachments[]\" value='$file' />$file<br>";
@@ -85,9 +85,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST'){
         #$mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
         $mail->Port = 25;                                    // TCP port to connect to
 
-        $mail->setFrom('security@email.com', 'D2Security');
+        $mail->setFrom('security@email.com', 'From Name');
         $mail->addAddress($Email);     // Add a recipient
-        $mail->addReplyTo('security@email.com', 'D2Security');
+        $mail->addReplyTo('security@email.com', 'Reply Name');
         #$mail->addCC('cc@example.com');
         #$mail->addBCC('bcc@example.com');
 
@@ -114,7 +114,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST'){
                                 echo 'Sending email ' . ($j+1) . '/' . $i . ' with attachment ' . $attach . ' to ' . $Email . '<br>';
                                 //Attachments
                                 $mail->clearAttachments();
-                                $mail->addAttachment('/var/www/CEPlus/files/' . $attach);         // Add attachments
+                                $mail->addAttachment('files/' . $attach);         // Add attachments
                                 #$mail->addAttachment('/tmp/image.jpg', 'new.jpg');    // Optional name
 
                                 //Content
