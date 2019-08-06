@@ -10,10 +10,10 @@
 <p>
 
 <?php
-        $files = scandir("/var/www/CEPlus/files");
+        $files = scandir("files");
         foreach ($files as $file) {
                 if ($file != "." AND $file != ".."){
-                        echo "<a href='/CEPlus/files/$file'>$file<br>";
+                        echo "<a href='files/$file'>$file<br>";
                 }
         }
 ?>
